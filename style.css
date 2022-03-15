@@ -192,6 +192,8 @@ They are flex containers and transform based on viewing device.
   color: var(--deepspacesparkle);
 }
 
+/* after selector is used to draw a border after the cover page text in an angle of -10 deg*/
+
 .coverpage-row-3::after {
   content: "";
   display: block;
@@ -353,7 +355,12 @@ footer p {
   background-color: var(--coverpagebordercolor);
 }
 
-/*  start adjusting the screen size, font properties, flex properties here, to maintain a good page view experience across devices*/
+/*  start adjusting the screen size, font properties, flex properties here, to maintain a good page view experience across devices
+
+aboutme-img image is set as display:none for all screen sizes except for smaller screens (width 200 -499px)
+
+this setting makes sure that, for smaller screens, portfolio image is shown in about me section whereas for wider screens it is displayed on the cover page.
+*/
 
 @media screen and (min-width: 768px) and (max-width: 768px) {
   .card-column {
@@ -374,6 +381,9 @@ footer p {
 
   .coverpage-row-3 {
     top: 70%;
+  }
+  .aboutme-img {
+    display: none;
   }
 }
 
@@ -412,6 +422,10 @@ footer p {
   .card-child-p-ul li {
     font-size: 1.3rem;
   }
+
+  .aboutme-img {
+    display: none;
+  }
 }
 
 @media screen and (min-width: 1101px) {
@@ -423,6 +437,10 @@ footer p {
   .coverpage-row-2 {
     flex: 0 0 33.3333%;
     max-width: 33.3333%;
+  }
+
+  .aboutme-img {
+    display: none;
   }
 }
 
@@ -450,6 +468,10 @@ footer p {
 
   .coverpage-column-3 {
     font-size: 1.5rem;
+  }
+
+  .aboutme-img {
+    display: none;
   }
 }
 
