@@ -5,6 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="reset.css" />
+
+    <!-- link fontawesome to add emojis in the contact section-->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css">
 
     <link rel="stylesheet" href="style.css" />
@@ -12,16 +14,11 @@
   </head>
   <body>
     <header>
-      <!--    <h1 class="page-title"><!--Hello there!</h1>-->
-      <!--<p>
-        "Develop a passion for learning. If you do, you will never cease to
-        grow."😊
-      </p>
-      <p>-Anthony J. D'Angelo</p>
-    -->
-      <nav>
+    <!--Navigation links to scroll to the sections "About me/Projects/Contact" on click-->
+       <nav>
         <ul>
           <li>
+            <!-- page visitor can navigate/scroll to the sections either by clicking the image or the text next to the image-->
             <a href="#about-me">
               <img src="./images/avatar.png" alt="Rekha's Profile Picture" />
             </a>
@@ -42,8 +39,10 @@
         </ul>
       </nav>
     </header>
-
+    <!--main section starts here-->
     <main>
+
+      <!-- main background has a visual code image-->
       <section class="card-img">
         <figure class="card-img-overlay">
           <img
@@ -51,6 +50,8 @@
             src="./images/coverphoto4.png"
             alt="Cover Picture"
           />
+
+          <!-- Portfolio name and image are overlayed on the background image (cover page img)-->
           <section class="coverpage-row-2">
             <article class="coverpage-column-2">
               <figure class="coverpage-child-2">
@@ -67,6 +68,7 @@
             </article>
           </section>
 
+          <!--Job title text is overlayed on the cover page img-->  
           <section class="coverpage-row-3">
             <article class="coverpage-column-3">
               <figure class="coverpage-child-3">
@@ -76,7 +78,7 @@
           </section>
         </figure>
       </section>
-
+<!-- section for About me/ Projects/ Technical Skill set/Contact start here-->
       <section class="card-row">
         <article class="card-column">
           <figure class="card-child">
@@ -90,23 +92,77 @@
             </p>
             <p class="card-child-p">
               <h2>Work Experience</h2>
-               Lab Automation Engineer - 
-              Tempus Labs Inc.</p>
+              <span class="boldtxt"> Associate Engineer II</span> - Tempus Labs Inc. - Jun 2021 to present</p>
               <p class="card-child-p"></p>
-              Accessioner - Prestige
+              Accessioner - Prestige staffing - Aug 2020 to Jun 2021
+            </p>
+
+            <p class="card-child-p">
+              <h2>Education</h2>
+              Coding Bootcamp - Georgia Tech - 2022</p>
+              <p class="card-child-p"></p>
+              B.Tech - Chemical Engineering - 2005
             </p>
           </figure>
         </article>
 
+         <!-- Images in the projects section increase in size when hovered over. And when clicked on the image, it takes to the deployed web page-->  
         <article class="card-column">
           <figure class="card-child">
-            <h2 class="my-works" id="my-works">Explore</h2>
-            <img src="./images/project_1.png" alt="Rekha's Work Gallery" />
+            <h2 class="my-works" id="my-works">Projects</h2>
+            <a href="https://rekhawb.github.io/HW1-Code-Refactor/">
+            <img src="./images/project_1.png" alt="Rekha's Work Gallery" /></a>
             <img src="./images/project_2.png" alt="Rekha's Work Gallery" />
             <p class="card-child-p">
              Build mock designs and wireframes for landing pages.
-             Created accessible, responsive, and functional user interfaces to allow users on any device to have good viewing experience.
-             Good experience in implementing SEO best practices.
+             Created <span class="boldtxt">accessible, responsive, and functional user interfaces</span> to allow users on any device to have good viewing experience.
+             Good experience in implementing <span class="boldtxt">SEO</span> best practices.
+            </p>
+
+            <p class="card-child-p">
+              Proficient understanding of web mark-up,including  <span class="boldtxt">HTML5</span> and <span class="boldtxt">CSS</span>
+            </p>
+
+            </figure>
+        </article>
+
+        <article class="card-column">
+          <figure class="card-child">
+            <h2 class="my-skill" id="my-skills">Technical Skill Set</h2>
+           
+            <p class="card-child-p">
+             <ul class="card-child-p-ul">
+               <li>
+                 HTML5
+               </li>
+               <li>
+               <p class="card-child-p-ul-p p1"></p>
+              </li>
+               <li>
+                 CSS
+               </li>
+               <li>
+                <p class="card-child-p-ul-p p2"></p>
+               </li>
+               <li>
+                 JAVASCRIPT
+               </li>
+               <li>
+                <p class="card-child-p-ul-p p3"></p>
+               </li>
+               <li>
+               PYTHON
+              </li>
+              <li>
+               <p class="card-child-p-ul-p p4"></p>
+              </li>
+              <li>
+                VISUALIZATIONS
+               </li>
+               <li>
+                <p class="card-child-p-ul-p p5"></p>
+               </li>
+             </ul>
             </p>
             
           </figure>
@@ -133,10 +189,12 @@
         </article>
       </section>
     </main>
+<!-- main containing cover page image, cover page text and image, sections - about me / projects / contact ends here-->
 
+<!-- page footer starts here -->
     <footer>
     
-      <p>💖 2022 Rekha</p>
+      <p>@ 2022 Rekha</p>
     </footer>
   </body>
 </html>
