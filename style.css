@@ -1,5 +1,4 @@
-/*https://graphicmama.com/blog/website-color-schemes/*/
-
+/* define common color and font properties used across the page here*/
 :root {
   --sandybrown: #f9a66c;
   --pastelorange: #ffc94b;
@@ -13,6 +12,9 @@
   --headercolor: fuchsia;
   --bodycolor: rgb(216, 191, 216);
   --coverpagebordercolor: rgb(139, 0, 139);
+  --coverpagerowcolor: rgb(128, 0, 128, 0.5);
+  --borderanglecolor: indigo;
+  /* rainbow color is not used now. keeping it for future purpose(if any)*/
   --webkitcolor: -webkit-linear-gradient(
     50deg,
     black,
@@ -30,7 +32,12 @@
     orange,
     red
   );
+  --fontapple: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  --fontcourier: "Courier New", Courier, monospace;
 }
+
+/*define properties using universal selcetor here  - applied to the entire page*/
 
 * {
   box-sizing: border-box;
@@ -38,14 +45,21 @@
 html {
   font-size: 70%;
 }
+/* margin and background color properties - body*/
+
 body {
   margin: 1px;
   padding: 5px;
   line-height: 1;
   background: var(--bodycolor);
 }
+/*define properties for the header, and its associated elements here - nav, a, ul, li, img
+headers position propery is fixed, so that it sticks to  the top even when the page scrolls to desired sections on click
+Z-index is set to 100 so that the header is eleveted to the top of the cover page image when the page scrolls.
+*/
+
 header {
-  font-family: "Courier New", Courier, monospace;
+  font-family: var(--fontcourier);
   font-size: 3rem;
   font-weight: 700;
   text-align: var(--center);
@@ -58,12 +72,7 @@ header {
   width: 96%;
   left: 15px;
 }
-/*
-header p {
-  font-size: 1.5rem;
-  font-style: italic;
-  font-family: serif, Snell Roundhand, cursive;
-}*/
+
 header img {
   border: 1px solid var(--white);
   border-radius: 4px;
@@ -79,12 +88,14 @@ header li {
   display: inline;
   font-size: 1rem;
 }
+
+/* nav is defined as flex so that the size gets adjusted based on device */
 nav {
   display: flex;
   justify-content: center;
   flex: 1;
   gap: 0.5rem;
-  background-color: purple;
+  background-color: var(--coverpagebordercolor);
   border-radius: 50px;
   opacity: 0.7;
   margin-top: 2px;
@@ -94,19 +105,25 @@ nav {
 nav a {
   flex: 1;
   text-decoration: none;
-  color: #fff;
+  color: var(--white);
   font-size: 1.5rem;
   text-align: left;
   font-weight: 700;
   text-decoration: none;
   transition: all 0.5s ease-out;
 }
+
+/*define properties for elements in the main here - cover page, portfolio text and image, sections - about me, projects, contact */
 main {
   width: 96%;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
-    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-family: var(--fontapple);
   margin: 0rem auto;
 }
+
+/* card-img class holds the cover page
+it is defined as relative to hold the image in it.
+and it is a flex container to grow and shrink based on visitor's device
+*/
 .card-img {
   display: flex;
   position: relative;
@@ -115,6 +132,11 @@ main {
   margin-top: 50px;
 }
 
+/*
+.card-img  .bottom holds the cover page
+it is defined absolute to be inside the card-img container.
+and then defined as relative to position the sections after the image ends
+*/
 .card-img .bottom {
   position: absolute;
   width: 100%;
@@ -123,6 +145,11 @@ main {
   top: 0;
   position: relative;
 }
+
+/* .coverpage row - 1 and .coverpage row - 2  represent the sections aboutme, projects , contact.
+These sections start after the image.
+They are flex containers and transform based on viewing device.
+*/
 
 .coverpage-row-2 {
   position: absolute;
@@ -161,7 +188,7 @@ main {
   margin-right: 50px;
 
   right: 20px;
-  background-color: rgb(128, 0, 128, 0.5);
+  background-color: var(--coverpagerowcolor);
   color: var(--deepspacesparkle);
 }
 
@@ -173,7 +200,7 @@ main {
   left: -5px;
   width: 100%;
   height: 100%;
-  border: 5px solid indigo;
+  border: 5px solid var(--borderanglecolor);
   border-radius: 10px;
   transform: rotate(-10deg);
   pointer-events: none;
@@ -194,18 +221,21 @@ main {
   border-radius: 60px;
   width: 100px;
   padding: 10px;
-  background-color: indigo;
+  background-color: var(--borderanglecolor);
   transition: width 2s;
 }
 
 .cover-child-p-2 img {
-  border: 1px solid white;
+  border: 1px solid var(--white);
   border-radius: 10px;
   width: 200px;
+
   padding: 5px;
-  background-color: indigo;
+  background-color: var(--borderanglecolor);
   transition: width 2s;
 }
+
+/* card-row class  is a flex container and holds the header and the description text of the sections*/
 
 .card-row {
   line-height: 2rem;
@@ -214,13 +244,14 @@ main {
   flex-wrap: wrap;
   position: absolute;
   position: relative;
+  justify-content: center;
 }
 
 .card-column {
   flex: 1 0 100%;
-  border: 1mm ridge indigo;
+  border: 1mm ridge var(--borderanglecolor);
   border-radius: 25px;
-  margin: 10px auto;
+  margin: 5px;
   padding: 1px;
 }
 
@@ -230,7 +261,10 @@ main {
   text-align: right;
   background-color: var(--headercolor);
   border-radius: 60px;
-  background: -webkit-linear-gradient(purple, indigo);
+  background: -webkit-linear-gradient(
+    var(--coverpagebordercolor),
+    var(--borderanglecolor)
+  );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   padding: 5px;
@@ -241,7 +275,7 @@ main {
   border-radius: 40px;
   width: 100px;
   padding: 5px;
-  background-color: purple;
+  background-color: var(--coverpagebordercolor);
   transition: width 2s;
 }
 
@@ -251,6 +285,8 @@ main {
 
 .card-child {
   flex-grow: 1;
+  color: var(--coverpagebordercolor);
+  font-size: 1.5rem;
 }
 
 /*
@@ -265,8 +301,39 @@ main {
 
 .card-child-p-ul li {
   font-size: 1.5rem;
-  line-height: 1.5;
-  padding-left: 5px;
+  line-height: 2;
+  padding-left: 10px;
+}
+
+.card-child-p-ul-p {
+  border: var(--borderanglecolor);
+  background-color: var(--coverpagebordercolor);
+  height: 10px;
+  margin-bottom: 10px;
+}
+
+/* the list items <p> tag width and color are helpful to define skill set level*/
+.p1 {
+  width: 50%;
+}
+.p2 {
+  width: 50%;
+}
+
+.p3 {
+  width: 30%;
+}
+
+.p4 {
+  width: 20%;
+}
+
+.p5 {
+  width: 50%;
+}
+
+.boldtxt {
+  font-weight: bold;
 }
 
 footer {
@@ -283,8 +350,10 @@ footer {
 
 footer p {
   opacity: 2;
-  background-color: purple;
+  background-color: var(--coverpagebordercolor);
 }
+
+/*  start adjusting the screen size, font properties, flex properties here, to maintain a good page view experience across devices*/
 
 @media screen and (min-width: 768px) and (max-width: 768px) {
   .card-column {
@@ -339,6 +408,10 @@ footer p {
   .coverpage-column-3 {
     font-size: 2rem;
   }
+
+  .card-child-p-ul li {
+    font-size: 1.3rem;
+  }
 }
 
 @media screen and (min-width: 1101px) {
@@ -365,7 +438,7 @@ footer p {
 
   .cover-child-p-2 img {
     width: 100px;
-    border: 0.5px solid white;
+    border: 0.5px solid var(--white);
     border-radius: 10px;
     width: 75px;
     padding: 1px;
@@ -380,6 +453,7 @@ footer p {
   }
 }
 
+/* for smalle screen sizes, hide the portfolio image when in potrait. This makes sure the screen width is sufficient to show the portfolio name and text. When in landscape, the portfolio image pops up for smaller screens*/
 @media screen and (min-width: 200px) and (max-width: 499px) and (orientation: portrait) {
   header {
     width: 55%;
