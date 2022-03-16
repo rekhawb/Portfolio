@@ -44,6 +44,7 @@
 }
 html {
   font-size: 70%;
+  scroll-behavior: smooth;
 }
 /* margin and background color properties - body*/
 
@@ -110,6 +111,7 @@ nav a {
   text-align: left;
   font-weight: 700;
   text-decoration: none;
+
   transition: all 0.5s ease-out;
 }
 
@@ -327,7 +329,7 @@ They are flex containers and transform based on viewing device.
 }
 
 .p4 {
-  width: 20%;
+  width: 30%;
 }
 
 .p5 {
@@ -361,6 +363,75 @@ aboutme-img image is set as display:none for all screen sizes except for smaller
 
 this setting makes sure that, for smaller screens, portfolio image is shown in about me section whereas for wider screens it is displayed on the cover page.
 */
+
+/* for smaller screen sizes, hide the portfolio image when in potrait. This makes sure the screen width is sufficient to show the portfolio name and text. When in landscape, the portfolio image pops up for smaller screens*/
+@media screen and (min-width: 200px) and (max-width: 499px) and (orientation: portrait) {
+  header {
+    width: 90%;
+    font-weight: 50;
+    line-height: 1rem;
+  }
+
+  ul {
+    padding-top: 5px;
+  }
+
+  header img {
+    width: 20px;
+    padding: 0px;
+  }
+  .coverpage-row-3 {
+    top: 40%;
+  }
+  .coverpage-column-3 {
+    font-size: 1rem;
+  }
+
+  .coverpage-column-2 {
+    font-size: 1.5rem;
+  }
+
+  /*
+  .cover-child-p-2 img {
+    visibility: hidden;
+  }
+  */
+
+  .cover-child-p-2 img {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 500px) and (max-width: 670px) {
+  .coverpage-row-2 {
+    top: 5%;
+    left: 0px;
+  }
+
+  .coverpage-column-2 {
+    font-size: 2rem;
+  }
+
+  .cover-child-p-2 img {
+    width: 100px;
+    border: 0.5px solid var(--white);
+    border-radius: 10px;
+    width: 75px;
+    padding: 1px;
+  }
+
+  .coverpage-row-3 {
+    top: 60%;
+  }
+
+  .coverpage-column-3 {
+    font-size: 1.5rem;
+  }
+
+  .aboutme-img {
+    display: none;
+  }
+}
 
 @media screen and (min-width: 768px) and (max-width: 768px) {
   .card-column {
@@ -441,68 +512,5 @@ this setting makes sure that, for smaller screens, portfolio image is shown in a
 
   .aboutme-img {
     display: none;
-  }
-}
-
-@media screen and (min-width: 500px) and (max-width: 670px) {
-  .coverpage-row-2 {
-    top: 5%;
-    left: 0px;
-  }
-
-  .coverpage-column-2 {
-    font-size: 2rem;
-  }
-
-  .cover-child-p-2 img {
-    width: 100px;
-    border: 0.5px solid var(--white);
-    border-radius: 10px;
-    width: 75px;
-    padding: 1px;
-  }
-
-  .coverpage-row-3 {
-    top: 60%;
-  }
-
-  .coverpage-column-3 {
-    font-size: 1.5rem;
-  }
-
-  .aboutme-img {
-    display: none;
-  }
-}
-
-/* for smalle screen sizes, hide the portfolio image when in potrait. This makes sure the screen width is sufficient to show the portfolio name and text. When in landscape, the portfolio image pops up for smaller screens*/
-@media screen and (min-width: 200px) and (max-width: 499px) and (orientation: portrait) {
-  header {
-    width: 55%;
-    font-weight: 50;
-    line-height: 1rem;
-  }
-
-  ul {
-    padding-top: 5px;
-  }
-
-  /*
-  header img {
-    visibility: hidden;
-  }*/
-  .coverpage-row-3 {
-    top: 40%;
-  }
-  .coverpage-column-3 {
-    font-size: 1rem;
-  }
-
-  .coverpage-column-2 {
-    font-size: 1.5rem;
-  }
-
-  .cover-child-p-2 img {
-    visibility: hidden;
   }
 }
